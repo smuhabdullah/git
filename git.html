@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Tutorial: Mastering Version Control for Beginners</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Chelsea Market', cursive;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .scrollblock {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .scrollblock h2 {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .scrollblock p {
+            margin-bottom: 10px;
+        }
+
+        .scrollblock code {
+            background-color: #e1e1e1;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-4">
+        <div class="p-4 mb-4 bg-white rounded shadow-sm">
+            <h1 class="text-center text-primary">Git Tutorial: Mastering Version Control for Beginners</h1>
+            <p class="lead text-center">Unleash the power of Git version control with our beginner-friendly tutorial.</p>
+        </div>
+
+        <!-- Setup -->
+        <div class="scrollblock">
+            <h2>Setup</h2>
+            <p>Download Git for your operating system:</p>
+            <ul>
+                <li><a href="http://git-scm.com/download/mac">Git for OSX</a></li>
+                <li><a href="https://gitforwindows.org/">Git for Windows</a></li>
+                <li><a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Git for Linux</a></li>
+            </ul>
+        </div>
+
+        <!-- Create a New Repository -->
+        <div class="scrollblock">
+            <h2>Create a New Repository</h2>
+            <p>Create a new directory, open it, and perform a <code>git init</code> to create a new Git repository.</p>
+        </div>
+
+        <!-- Checkout a Repository -->
+        <div class="scrollblock">
+            <h2>Checkout a Repository</h2>
+            <p>Create a working copy of a local repository by running the command <code>git clone /path/to/repository</code>. For a remote server, use <code>git clone username@host:/path/to/repository</code>.</p>
+        </div>
+
+        <!-- Workflow -->
+        <div class="scrollblock">
+            <h2>Workflow</h2>
+            <p>Your local repository consists of three "trees" maintained by Git:</p>
+            <ul>
+                <li><code>Working Directory</code> - Holds the actual files.</li>
+                <li><code>Index</code> - Acts as a staging area.</li>
+                <li><code>HEAD</code> - Points to the last commit.</li>
+            </ul>
+        </div>
+
+        <!-- Add & Commit -->
+        <div class="scrollblock">
+            <h2>Add & Commit</h2>
+            <p>Propose changes (add to the <b>Index</b>) using <code>git add &lt;filename&gt;</code> or <code>git add *</code>. Commit these changes using <code>git commit -m "Commit message"</code>. The file is now committed to the <b>HEAD</b>, but not yet in your remote repository.</p>
+        </div>
+
+        <!-- Pushing Changes -->
+        <div class="scrollblock">
+            <h2>Pushing Changes</h2>
+            <p>Your changes are now in the <b>HEAD</b> of your local working copy. To send those changes to your remote repository, execute <code>git push origin master</code>. Change <i>master</i> to the branch you want to push your changes to.</p>
+        </div>
+
+        <!-- Branching -->
+        <div class="scrollblock">
+            <h2>Branching</h2>
+            <p>Branches are used to develop features isolated from each other. The <i>master</i> branch is the "default" branch when you create a repository. Use other branches for development and merge them back to the master branch upon completion.</p>
+            <p>Create a new branch named "feature_x" and switch to it using <code>git checkout -b feature_x</code>. Switch back to master using <code>git checkout master</code> and delete the branch with <code>git branch -d feature_x</code>. A branch is not available to others unless you push it to your remote repository using <code>git push origin &lt;branch&gt;</code>.</p>
+        </div>
+
+        <!-- Update & Merge -->
+        <div class="scrollblock">
+            <h2>Update & Merge</h2>
+            <p>Update your local repository to the newest commit by executing <code>git pull</code> in your working directory to fetch and merge remote changes.</p>
+            <p>To merge another branch into your active branch (e.g. master), use <code>git merge &lt;branch&gt;</code>. If there are conflicts, resolve them manually by editing the files shown by Git. After resolving, mark them as merged with <code>git add &lt;filename&gt;</code>.</p>
+        </div>
+
+        <!-- Tagging -->
+        <div class="scrollblock">
+            <h2>Tagging</h2>
+            <p>It's recommended to create tags for software releases. Create a new tag named <i>1.0.0</i> by executing <code>git tag 1.0.0 1b2e1d63ff</code>. The <i>1b2e1d63ff</i> stands for the first 10 characters of the commit ID you want to reference. Get the commit ID by looking at the log.</p>
+        </div>
+
+        <!-- Log -->
+        <div class="scrollblock">
+            <h2>Log</h2>
+            <p>Study repository history using <code>git log</code>.</p>
+            <p>Add parameters for customized logs:</p>
+            <ul>
+                <li>Commits by a certain author: <code>git log --author=bob</code></li>
+                <li>Compressed log, one line per commit: <code>git log --pretty=oneline</code></li>
+                <li>ASCII art tree of all branches: <code>git log --graph --oneline --decorate --all</code></li>
+                <li>Files changed: <code>git log --name-status</code></li>
+            </ul>
+            <p>For more options, see <code>git log --help</code>.</p>
+        </div>
+
+        <!-- Replace Local Changes -->
+        <div class="scrollblock">
+            <h2>Replace Local Changes</h2>
+            <p>If you made an error, replace local changes using <code>git checkout -- &lt;filename&gt;</code>. This replaces changes in your working tree with the last content in HEAD. Added changes or new files are kept.</p>
+            <p>To drop all local changes and commits, fetch the latest history from the server and point your local master branch to it: <code>git fetch origin</code>, <code>git reset --hard origin/master</code>.</p>
+        </div>
+
+        <!-- Useful Hints -->
+        <div class="scrollblock">
+            <h2>Useful Hints</h2>
+            <p>Built-in Git GUI: <code>gitk</code>.</p>
+            <p>Colorful Git output: <code>git config color.ui true</code>.</p>
+            <p>Show log with one line per commit: <code>git config format.pretty oneline</code>.</p>
+            <p>Use interactive adding: <code>git add -i</code>.</p>
+        </div>
+
+        <!-- Links & Resources -->
+        <div class="scrollblock">
+            <h2>Links & Resources</h2>
+            <h3>Graphical Clients</h3>
+            <ul>
+                <li><a href="http://gitx.laullon.com/">GitX (L) (OSX, open source)</a></li>
+                <li><a href="http://www.git-tower.com/">Tower (OSX)</a></li>
+                <li><a href="http://www.sourcetreeapp.com/">SourceTree (OSX & Windows, free)</a></li>
+                <li><a href="http://mac.github.com/">GitHub for Mac (OSX, free)</a></li>
+                <li><a href="https://itunes.apple.com/gb/app/gitbox/id403388357?mt=12">GitBox (OSX, App Store)</a></li>
+            </ul>
+            <h3>Guides</h3>
+            <ul>
+                <li><a href="http://book.git-scm.com/">Git Community Book</a></li>
+                <li><a href="http://progit.org/book/">Pro Git</a></li>
+                <li><a href="http://think-like-a-git.net/">Think Like a Git</a></li>
+                <li><a href="http://help.github.com/">GitHub Help</a></li>
+                <li><a href="http://marklodato.github.com/visual-git-guide/index-en.html">A Visual Git Guide</a></li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
